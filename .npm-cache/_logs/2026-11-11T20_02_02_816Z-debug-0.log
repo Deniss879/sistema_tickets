@@ -1,0 +1,18 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\HPx360\AppData\Local\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.0
+2 info using node@v25.5.0
+3 silly config load:file:C:\Users\HPx360\AppData\Local\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\react_native\Tickets\mobile\.npmrc
+5 silly config load:file:C:\Users\HP x360\.npmrc
+6 silly config load:file:C:\Users\HP x360\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm exec expo install --fix
+8 verbose argv "exec" "--cache" ".npm-cache" "--" "expo" "install" "--fix"
+9 verbose logfile logs-max:10 dir:C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-11T20_02_02_816Z-
+10 verbose logfile C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-11T20_02_02_816Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd C:\react_native\Tickets\mobile
+13 verbose os Windows_NT 10.0.22631
+14 verbose node v25.5.0
+15 verbose npm  v10.9.0
+16 verbose exit 0
+17 info ok

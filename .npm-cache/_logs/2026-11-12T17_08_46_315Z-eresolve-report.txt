@@ -1,0 +1,24 @@
+'Log files:
+C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-12T17_08_46_315Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: mobile@1.0.0
+Found: react@19.3.0
+node_modules/react
+  react@"19.3.0" from the root project
+  peer react@"^18.0.0 || ^19.0.0" from react-native-web@0.21.4
+  node_modules/react-native-web
+    react-native-web@"*" from the root project
+
+Could not resolve dependency:
+peer react@"^19.3.1" from react-dom@19.3.1
+node_modules/react-dom
+  react-dom@"*" from the root project
+  peer react-dom@"^18.0.0 || ^19.0.0" from react-native-web@0.21.4
+  node_modules/react-native-web
+    react-native-web@"*" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.

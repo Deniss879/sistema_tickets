@@ -1,0 +1,78 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\HPx360\AppData\Local\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.0
+2 info using node@v25.5.0
+3 silly config load:file:C:\Users\HPx360\AppData\Local\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\react_native\Tickets\mobile\.npmrc
+5 silly config load:file:C:\Users\HP x360\.npmrc
+6 silly config load:file:C:\Users\HP x360\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install react-native-web react-dom @expo/metro-runtime
+8 verbose argv "install" "react-native-web" "react-dom" "@expo/metro-runtime" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-12T17_08_46_315Z-
+10 verbose logfile C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-12T17_08_46_315Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest react-native-web@*
+15 silly packumentCache full:https://registry.npmjs.org/react-native-web cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/react-native-web 570ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/react-native-web set size:undefined disposed:false
+18 silly fetch manifest react@19.3.0
+19 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/react 340ms (cache updated)
+21 silly packumentCache full:https://registry.npmjs.org/react set size:undefined disposed:false
+22 silly fetch manifest react-dom@*
+23 silly packumentCache full:https://registry.npmjs.org/react-dom cache-miss
+24 http fetch GET 200 https://registry.npmjs.org/react-dom 271ms (cache miss)
+25 silly packumentCache full:https://registry.npmjs.org/react-dom set size:undefined disposed:false
+26 silly fetch manifest react@^19.3.1
+27 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+28 http fetch GET 200 https://registry.npmjs.org/react 25ms (cache hit)
+29 silly packumentCache full:https://registry.npmjs.org/react set size:7136567 disposed:false
+30 verbose stack Error: unable to resolve dependency tree
+30 verbose stack     at #failPeerConflict (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1363:25)
+30 verbose stack     at #loadPeerSet (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1356:29)
+30 verbose stack     at async #loadPeerSet (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1308:23)
+30 verbose stack     at async #buildDepStep (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:904:11)
+30 verbose stack     at async Arborist.buildIdealTree (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:181:7)
+30 verbose stack     at async Promise.all (index 1)
+30 verbose stack     at async Arborist.reify (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:131:5)
+30 verbose stack     at async Install.exec (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\lib\commands\install.js:150:5)
+30 verbose stack     at async Npm.exec (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\lib\npm.js:207:9)
+30 verbose stack     at async module.exports (C:\Users\HPx360\AppData\Local\npm\node_modules\npm\lib\cli\entry.js:74:5)
+31 error code ERESOLVE
+32 error ERESOLVE unable to resolve dependency tree
+33 error
+34 error While resolving: mobile@1.0.0
+34 error Found: react@19.3.0
+34 error node_modules/react
+34 error   react@"19.3.0" from the root project
+34 error   peer react@"^18.0.0 || ^19.0.0" from react-native-web@0.21.4
+34 error   node_modules/react-native-web
+34 error     react-native-web@"*" from the root project
+34 error
+34 error Could not resolve dependency:
+34 error peer react@"^19.3.1" from react-dom@19.3.1
+34 error node_modules/react-dom
+34 error   react-dom@"*" from the root project
+34 error   peer react-dom@"^18.0.0 || ^19.0.0" from react-native-web@0.21.4
+34 error   node_modules/react-native-web
+34 error     react-native-web@"*" from the root project
+34 error
+34 error Fix the upstream dependency conflict, or retry
+34 error this command with --force or --legacy-peer-deps
+34 error to accept an incorrect (and potentially broken) dependency resolution.
+35 error
+35 error
+35 error For a full report see:
+35 error C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-12T17_08_46_315Z-eresolve-report.txt
+36 silly unfinished npm timer reify 1794503327754
+37 silly unfinished npm timer reify:loadTrees 1794503327755
+38 silly unfinished npm timer idealTree:buildDeps 1794503328108
+39 silly unfinished npm timer idealTree:#root 1794503328109
+40 verbose cwd C:\react_native\Tickets\mobile
+41 verbose os Windows_NT 10.0.22631
+42 verbose node v25.5.0
+43 verbose npm  v10.9.0
+44 verbose exit 1
+45 verbose code 1
+46 error A complete log of this run can be found in: C:\react_native\Tickets\mobile\.npm-cache\_logs\2026-11-12T17_08_46_315Z-debug-0.log
