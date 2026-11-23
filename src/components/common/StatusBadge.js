@@ -5,7 +5,7 @@ import { COLORS, FONTS, SIZES } from '../../theme';
 const STATUS_CONFIG = {
   abierto: {
     backgroundColor: COLORS.statusOpen,
-    label: 'Abierto',
+    label: 'Nuevo',
   },
   en_proceso: {
     backgroundColor: COLORS.statusInProgress,
@@ -14,6 +14,10 @@ const STATUS_CONFIG = {
   finalizado: {
     backgroundColor: COLORS.statusDone,
     label: 'Finalizado',
+  },
+  cerrado: {
+    backgroundColor: COLORS.statusDone,
+    label: 'Cerrado',
   },
 };
 

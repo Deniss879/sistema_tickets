@@ -22,9 +22,13 @@ export default function TicketListScreen({ route, navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const [filtroEstado, setFiltroEstado] = useState(route?.params?.estado || 'todos');
   const [busqueda, setBusqueda] = useState('');
+  const [usuario, setUsuario] = useState(null);
 
   const cargarTickets = async () => {
     try {
+      const userStr = await AsyncStorage.getItem('usuario');
+      if (userStr) setUsuario(JSON.parse(userStr));
+
       const token = await AsyncStorage.getItem('token');
       let url = `${API_URL}/api/tickets`;
       if (filtroEstado !== 'todos') {
@@ -109,10 +113,12 @@ export default function TicketListScreen({ route, navigation }) {
     </TouchableOpacity>
   );
 
+  const isAdmin = usuario?.rol === 'admin';
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <AppHeader
-        title="Gestión de Tickets"
+        title={isAdmin ? "Gestión de Tickets" : "Mis Solicitudes"}
         onMenuPress={() => navigation.openDrawer ? navigation.openDrawer() : navigation.goBack()}
         onNotificationPress={() => navigation.navigate('Settings')}
         onHomePress={() => navigation.navigate('Dashboard')}
@@ -131,7 +137,7 @@ export default function TicketListScreen({ route, navigation }) {
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
-          placeholder="Buscar por área, folio o descripción..."
+          placeholder={isAdmin ? "Buscar por área, folio o descripción..." : "Buscar por folio o problema..."}
           placeholderTextColor={COLORS.textSecondary}
           value={busqueda}
           onChangeText={setBusqueda}
@@ -155,7 +161,17 @@ export default function TicketListScreen({ route, navigation }) {
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
               <Text style={styles.emptyEmoji}>📭</Text>
-              <Text style={styles.emptyText}>No se encontraron tickets</Text>
+              <Text style={styles.emptyText}>
+                {isAdmin ? "No se encontraron tickets" : "No tienes solicitudes en esta categoría"}
+              </Text>
+              {!isAdmin && (
+                <TouchableOpacity
+                  style={[styles.filtroBtn, { marginTop: 14, backgroundColor: COLORS.primary }]}
+                  onPress={() => navigation.navigate('CreateTicket')}
+                >
+                  <Text style={{ color: COLORS.white, fontWeight: '700' }}>+ Levantar Nueva Solicitud</Text>
+                </TouchableOpacity>
+              )}
             </View>
           }
         />

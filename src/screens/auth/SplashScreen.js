@@ -36,7 +36,7 @@ const SplashScreen = ({ navigation }) => {
           <TouchableOpacity
             style={styles.button}
             activeOpacity={0.8}
-            onPress={() => navigation.navigate('RoleSelect')}
+            onPress={() => navigation.navigate('Login')}
           >
             <Text style={styles.buttonText}>Iniciar</Text>
           </TouchableOpacity>

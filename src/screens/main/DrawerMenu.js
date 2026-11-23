@@ -25,10 +25,14 @@ export default function DrawerMenu({ navigation }) {
     navigation.reset({ index: 0, routes: [{ name: 'Auth' }] });
   };
 
+  const isAdmin = usuario?.rol === 'admin';
+
   const navItems = [
     { label: 'Panel Principal', icon: '🏠', screen: 'Dashboard' },
-    { label: 'Gestión de Tickets', icon: '📋', screen: 'TicketList' },
-    { label: 'Bitácora de Equipos', icon: '🖥️', screen: 'EquipmentList' },
+    { label: isAdmin ? 'Levantar Ticket' : 'Reportar una Falla', icon: '➕', screen: 'CreateTicket' },
+    { label: isAdmin ? 'Gestión de Tickets' : 'Mis tickets', icon: '📋', screen: 'TicketList' },
+    { label: isAdmin ? 'Bitácora de Equipos' : 'Equipos de Área', icon: '🖥️', screen: 'EquipmentList' },
+    { label: 'Registrar Usuario', icon: '👤', screen: 'RegisterUser', adminOnly: true },
     { label: 'Reportes e Informes', icon: '📊', screen: 'Reports', adminOnly: true },
     { label: 'Configuración', icon: '⚙️', screen: 'Settings' },
   ];
@@ -42,6 +46,9 @@ export default function DrawerMenu({ navigation }) {
         <Text style={styles.headerTitle}>SISTEMAS</Text>
         <Text style={styles.headerSub}>TEZONTEPEC DE ALDAMA</Text>
         <Text style={styles.userName}>{usuario?.nombre || 'Usuario'}</Text>
+        <Text style={styles.userRole}>
+          {isAdmin ? '🛡️ Administrador / Técnico' : `🏢 ${usuario?.area_nombre || 'Área Municipal'}`}
+        </Text>
       </View>
 
       <ScrollView contentContainerStyle={styles.menuContainer}>
@@ -91,7 +98,8 @@ const styles = StyleSheet.create({
   },
   headerTitle: { fontSize: SIZES.h3, fontWeight: '800', color: COLORS.textPrimary },
   headerSub: { fontSize: 10, color: COLORS.textSecondary, letterSpacing: 1.5, marginTop: 2 },
-  userName: { fontSize: SIZES.body, fontWeight: '600', color: COLORS.textDark, marginTop: 8 },
+  userName: { fontSize: SIZES.body, fontWeight: '700', color: COLORS.textDark, marginTop: 8 },
+  userRole: { fontSize: SIZES.small, color: COLORS.textSecondary, marginTop: 2 },
   menuContainer: { padding: SIZES.md },
   menuButton: {
     backgroundColor: COLORS.primary,

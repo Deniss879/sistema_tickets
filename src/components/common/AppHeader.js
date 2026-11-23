@@ -27,6 +27,7 @@ const AppHeader = ({
           style={styles.iconButton}
           onPress={onMenuPress}
           activeOpacity={0.7}
+          hitSlop={{ top: 15, bottom: 15, left: 15, right: 15 }}
         >
           <Text style={styles.iconText}>☰</Text>
         </TouchableOpacity>

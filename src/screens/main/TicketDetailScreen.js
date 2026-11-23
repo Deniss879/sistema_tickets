@@ -227,6 +227,25 @@ export default function TicketDetailScreen({ route, navigation }) {
           ))}
         </View>
 
+        {/* Explicación amigable del estado actual */}
+        <View style={[
+          styles.statusExplainCard,
+          ticket.estado === 'abierto' && { borderLeftColor: COLORS.info, backgroundColor: '#F0F9FF' },
+          ticket.estado === 'en_proceso' && { borderLeftColor: COLORS.warning, backgroundColor: '#FFFDF0' },
+          ticket.estado === 'finalizado' && { borderLeftColor: COLORS.success, backgroundColor: '#F2FFF5' },
+        ]}>
+          <Text style={styles.statusExplainTitle}>
+            {ticket.estado === 'abierto' && '📬 Reporte Registrado y en Cola'}
+            {ticket.estado === 'en_proceso' && '⏳ En Atención por Soporte Técnico'}
+            {ticket.estado === 'finalizado' && '✅ Falla Resuelta y Concluida'}
+          </Text>
+          <Text style={styles.statusExplainDesc}>
+            {ticket.estado === 'abierto' && 'Tu reporte ha sido recibido por el departamento de sistemas y está en espera de ser atendido por un técnico.'}
+            {ticket.estado === 'en_proceso' && (ticket.subestado ? `Detalle operativo: ${ticket.subestado}` : 'Un técnico se encuentra revisando y dando solución a tu falla.')}
+            {ticket.estado === 'finalizado' && 'El servicio técnico ha concluido satisfactoriamente. Si requieres más ayuda o la falla persiste, puedes reportarlo de nuevo.'}
+          </Text>
+        </View>
+
         {/* Fotos de evidencia */}
         {ticket.fotos && ticket.fotos.length > 0 && (
           <>
@@ -388,8 +407,27 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: SIZES.radiusMd,
     padding: SIZES.md,
+    marginBottom: SIZES.sm,
+    ...SHADOWS.small,
+  },
+  statusExplainCard: {
+    backgroundColor: COLORS.surface,
+    borderRadius: SIZES.radiusSm,
+    padding: SIZES.md,
+    borderLeftWidth: 4,
     marginBottom: SIZES.md,
     ...SHADOWS.small,
+  },
+  statusExplainTitle: {
+    fontSize: SIZES.caption,
+    fontWeight: '700',
+    color: COLORS.textPrimary,
+    marginBottom: 4,
+  },
+  statusExplainDesc: {
+    fontSize: SIZES.small,
+    color: COLORS.textDark,
+    lineHeight: 18,
   },
   stepRow: { flexDirection: 'row', minHeight: 46 },
   indicatorCol: { alignItems: 'center', width: 30 },

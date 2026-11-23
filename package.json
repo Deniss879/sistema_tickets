@@ -21,7 +21,9 @@
     "react-native-web": "^0.21.4"
   },
   "scripts": {
-    "start": "expo start --go",
+    "start": "node start-all.js",
+    "expo": "expo start --go",
+    "server": "C:\\xampp\\php\\php.exe -S 0.0.0.0:3000 server.php",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"

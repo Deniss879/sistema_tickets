@@ -57,8 +57,10 @@ export default function CreateTicketScreen({ navigation }) {
       const userStr = await AsyncStorage.getItem('usuario');
       if (userStr) {
         const u = JSON.parse(userStr);
-        if (u.area_id && resAreas.data) {
-          const areaUser = resAreas.data.find(a => a.id === u.area_id);
+        if (resAreas.data) {
+          const areaUser = resAreas.data.find(
+            a => a.id === u.area_id || (u.area_nombre && a.nombre?.toLowerCase() === u.area_nombre?.toLowerCase())
+          );
           if (areaUser) setSelectedArea(areaUser);
         }
       }
@@ -145,6 +147,11 @@ export default function CreateTicketScreen({ navigation }) {
               </Text>
               <Text style={{ color: COLORS.primary }}>▼</Text>
             </TouchableOpacity>
+            {selectedArea && (
+              <Text style={styles.fieldHelper}>
+                📍 Asignada a tu cuenta. Toca arriba si la falla ocurrió en otra área.
+              </Text>
+            )}
 
             {/* Campo Categoría */}
             <Text style={styles.fieldLabel}>Tipo de Falla / Categoría</Text>
@@ -316,6 +323,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   pickerText: { fontSize: SIZES.body, color: COLORS.textDark, flex: 1 },
+  fieldHelper: { fontSize: SIZES.small, color: COLORS.textSecondary, marginTop: 4, marginLeft: 2 },
   intervencionRow: { flexDirection: 'row', justifyContent: 'space-between' },
   intervencionBtn: {
     flex: 1,

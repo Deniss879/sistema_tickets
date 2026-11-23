@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, ActivityIndicator } from 'react-native';
 import AppNavigator from './src/navigation/AppNavigator';
+import { navigationRef } from './src/navigation/navigationRef';
 import { COLORS } from './src/theme';
 
 export default function App() {
@@ -17,8 +18,9 @@ export default function App() {
   const checkAuth = async () => {
     try {
       const token = await AsyncStorage.getItem('token');
+      // La app corre exclusivamente en el flujo de Usuario
       if (token) {
-        setInitialRoute('Main');
+        setInitialRoute('User');
       } else {
         setInitialRoute('Auth');
       }
@@ -38,7 +40,7 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <StatusBar style="dark" />
       <AppNavigator initialRoute={initialRoute} />
     </NavigationContainer>
